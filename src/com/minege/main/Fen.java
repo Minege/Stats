@@ -15,18 +15,22 @@ import javax.swing.JSpinner;
 public class Fen extends JFrame implements ActionListener{
 	
 	/*Panel: */
-	PanelStats p = new PanelStats();
+	PanelStats panelStats = new PanelStats();
 	JPanel root = new JPanel();
 	JPanel control = new JPanel();
 	
-	static ArrayList<Integer> a = new ArrayList();
+	static ArrayList<Integer> notes = new ArrayList<>();
+	private JButton button;
+	private JSpinner spin1;
+	
 	public Fen(){
-		a.add(2);
+		notes.add(2);
+		notes.add(4);
 	/*Zone control*/
-        JButton afficher = new JButton("Afficher");
-	JButton b = new JButton("Ajouter");
-	b.addActionListener(this);
-	JSpinner spin1 = new JSpinner();
+    JButton afficher = new JButton("Afficher");
+	button = new JButton("Ajouter");
+	button.addActionListener(this);
+	spin1 = new JSpinner();
 	JLabel info_note = new JLabel("Entre ta note ici: ");
 	
 	this.setBounds(100, 100, 450, 300);
@@ -37,13 +41,13 @@ public class Fen extends JFrame implements ActionListener{
 	/*Disposition des Panels sur le root */
 	root.setLayout(new BorderLayout());
 
-	root.add(p, BorderLayout.CENTER);
+	root.add(panelStats, BorderLayout.CENTER);
 	root.add(control, BorderLayout.SOUTH);
 	
 	/*On met les boutons sur le control*/
 	control.setLayout(new BorderLayout());
 	control.add(spin1, BorderLayout.CENTER);
-	control.add(b, BorderLayout.EAST);
+	control.add(button, BorderLayout.EAST);
 	control.add(info_note, BorderLayout.WEST);
 	}
 	
@@ -55,21 +59,26 @@ public class Fen extends JFrame implements ActionListener{
 	
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(ActionEvent e) {
         //On ajoute une valeur à l'array et on appelle PanelStats
         //a.add((int)spin1.getValue());
+			    Object src = e.getSource();
+			    if (src == button) {
+			    	notes.add((int)spin1.getValue());
+			    	panelStats.updateUI();
+			    }
 	}
 
 
 	public static ArrayList<Integer> getA() {
-		return a;
+		return notes;
 	}
 	public static int getAsize(){
-		return a.size();
+		return notes.size();
 	}
 
-	public static void setA(ArrayList<Integer> a) {
-		Fen.a = a;
+	public static void setA(ArrayList<Integer> newA) {
+		Fen.notes = newA;
 	}
 	
 	}
