@@ -13,8 +13,8 @@ public class PanelStats extends JPanel{
 	
 	
 	public void paintComponent (Graphics g) {
-		Point nextPoint = new Point(0,0);
-		Point lastPoint = new Point (0,0);
+		Point nextPoint = new Point(0,this.getHeight());
+		Point lastPoint = new Point (0,this.getHeight());
 		/*Pire notes: <= 3 = ROUGE; Moyenne notes; > 4 < 5 ORANGE; Bonne note: > 5 */
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
