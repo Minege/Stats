@@ -47,8 +47,21 @@ public class PanelStats extends JPanel{
 						lastPoint = nextPoint;
 						ancY = a*10;
 						ancX = a*10;
-				i++;
-			}
+						i++;
+					}
+					
+					//calcul de la moyenne
+					ArrayList<Integer> notes = Fen.getA();
+					float sum = 0;
+					for(int j = 0; j<notes.size();j++){
+						sum += notes.get(j);
+					}
+					float moyenne = sum/notes.size();
+					
+					//dessin de la moyenne
+					g.setColor(Color.blue);
+					g.drawLine(0, (int)(this.getHeight()-moyenne*30), notes.size()*10, (int)(this.getHeight()-moyenne*30));
+					
 
 		}
 
