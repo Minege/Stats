@@ -60,7 +60,7 @@ public class PanelStats extends JPanel{
 					
 					//dessin de la moyenne
 					g.setColor(Color.blue);
-					g.drawLine(0, (int)(this.getHeight()-moyenne*30), notes.size()*10, (int)(this.getHeight()-moyenne*30));
+					g.drawLine(0, (int)(this.getHeight()-moyenne*30), (notes.size()-1)*10, (int)(this.getHeight()-moyenne*30));
 					
 
 		}
