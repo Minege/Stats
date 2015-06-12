@@ -24,8 +24,6 @@ public class Fen extends JFrame implements ActionListener{
 	private JSpinner spin1;
 	
 	public Fen(){
-		notes.add(2);
-		notes.add(4);
 	/*Zone control*/
     JButton afficher = new JButton("Afficher");
 	button = new JButton("Ajouter");
